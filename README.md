@@ -84,5 +84,5 @@ I want to to be able to write comments on pictures
 ### Like
 ```
 - Like belongs to one User
-- Like belong to one Picture
+- Like belongs to one Picture
 ```
