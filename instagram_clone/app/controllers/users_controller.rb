@@ -14,7 +14,10 @@ class UsersController < ApplicationController
     else
       redirect_to '/signup', notice: 'Invalid submission'
     end
+  end
 
+  def show
+    @user = User.find(session[:user_id])
   end
 
   private

@@ -261,3 +261,248 @@ puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
 puma (3.12.6) lib/puma/server.rb:476:in `process_client'
 puma (3.12.6) lib/puma/server.rb:334:in `block in run'
 puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-06-06 21:33:10 +0100
+  [1m[35m (3.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/garethwoodman/.rvm/gems/ruby-2.5.0/gems/railties-5.1.7/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/garethwoodman/.rvm/gems/ruby-2.5.0/gems/railties-5.1.7/lib/rails/templates/rails/welcome/index.html.erb (7.7ms)
+Completed 200 OK in 40ms (Views: 25.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for ::1 at 2020-06-06 21:34:04 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (77.8ms)
+Completed 200 OK in 1175ms (Views: 930.5ms | ActiveRecord: 25.2ms)
+
+
+Started POST "/users" for ::1 at 2020-06-06 21:34:17 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sCfiObaUgx8wRE7Rf11EPDwWuE7x8HSMwFePqSZkauT68j9z3Vp3ttgzIO3B+8/eIl6OD3sEHT0l8F/DNG4Dog==", "user"=>{"username"=>"mario", "email"=>"mario@mario.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create account"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "mario"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mario@mario.com"], ["LIMIT", 1]]
+  [1m[35mSQL (13.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "mario"], ["email", "mario@mario.com"], ["password_digest", "$2a$12$3S6h0FwDv9HF7SpV3Ttlwe8.QgnByxdiRHItPpuPv1PMwezy/RTVC"], ["created_at", "2020-06-06 20:34:18.266758"], ["updated_at", "2020-06-06 20:34:18.266758"]]
+  [1m[35m (10.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000login
+Completed 302 Found in 384ms (ActiveRecord: 24.6ms)
+
+
+Started POST "/users" for ::1 at 2020-06-06 21:37:33 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sCfiObaUgx8wRE7Rf11EPDwWuE7x8HSMwFePqSZkauT68j9z3Vp3ttgzIO3B+8/eIl6OD3sEHT0l8F/DNG4Dog==", "user"=>{"username"=>"test", "email"=>"test@mario.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create account"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@mario.com"], ["LIMIT", 1]]
+  [1m[35mSQL (3.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "test"], ["email", "test@mario.com"], ["password_digest", "$2a$12$yAvbYoAlGnyfagZkyIM94ung/etstAQvSH66IzJiq7uZtOTsi0Pjq"], ["created_at", "2020-06-06 20:37:34.444687"], ["updated_at", "2020-06-06 20:37:34.444687"]]
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000login
+Completed 302 Found in 409ms (ActiveRecord: 23.6ms)
+
+
+Started POST "/users" for ::1 at 2020-06-06 21:38:36 +0100
+  
+ActionController::RoutingError (No route matches [POST] "/users"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/signup" for ::1 at 2020-06-06 21:39:44 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (21.3ms)
+Completed 200 OK in 225ms (Views: 172.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/signup" for ::1 at 2020-06-06 21:39:55 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PO92oPchZu5ftBRBZlvPO1Q5CsP63iF5S7/Q4b84vbZ2OqvqnO+SR7fDen3Y/UTZSnE8gnAqSMiuGACLrTLU8A==", "user"=>{"username"=>"test", "email"=>"test@mario.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create account"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@mario.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "test"], ["email", "test@mario.com"], ["password_digest", "$2a$12$8zrgAIliGL6RgeztZDzcC.7PecyYuY.TRwaSX1R6vx41ekI3ReYJ6"], ["created_at", "2020-06-06 20:39:55.912152"], ["updated_at", "2020-06-06 20:39:55.912152"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000login
+Completed 302 Found in 382ms (ActiveRecord: 4.5ms)
+
+
+Started POST "/signup" for ::1 at 2020-06-06 21:40:24 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PO92oPchZu5ftBRBZlvPO1Q5CsP63iF5S7/Q4b84vbZ2OqvqnO+SR7fDen3Y/UTZSnE8gnAqSMiuGACLrTLU8A==", "user"=>{"username"=>"test", "email"=>"test@mario.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create account"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@mario.com"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+Redirected to http://localhost:3000signup
+Completed 302 Found in 348ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/signup" for ::1 at 2020-06-06 21:40:38 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 131ms (Views: 101.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/signup" for ::1 at 2020-06-06 21:41:09 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UZVRNZv9yd1KnassLqvXQj/mb4ABTGnNpI+1ZzteauUbQIx/8DM9dKLqxRCQDVygIa5ZwYu4AHxBKGUNKVQDow==", "user"=>{"username"=>"test", "email"=>"test@mario.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create account"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@mario.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "test"], ["email", "test@mario.com"], ["password_digest", "$2a$12$7Z4hpEDu3IIiN/aw1c8LEONbAUdAGphdejZxBQuOWHGllEjN8u3Oq"], ["created_at", "2020-06-06 20:41:09.641362"], ["updated_at", "2020-06-06 20:41:09.641362"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000login
+Completed 302 Found in 364ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/signup" for ::1 at 2020-06-06 21:42:27 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 219ms (Views: 148.4ms | ActiveRecord: 14.1ms)
+
+
+Started POST "/signup" for ::1 at 2020-06-06 21:42:39 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7H25O9gadA6bkGqWNJaOX6kzLmNZuNp2n8Vj+D9W6KWmqGRxs9SAp3PnBKqKMAW9t3sYItNMs8d6YrOSLVyB4w==", "user"=>{"username"=>"test", "email"=>"test@bunny.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create account"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (15.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@bunny.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "test"], ["email", "test@bunny.com"], ["password_digest", "$2a$12$8LtVuW7Yen0voN2jxscxVOpyraPNnnPp2dEnEvAByzZnoL7M.EIEu"], ["created_at", "2020-06-06 20:42:40.144410"], ["updated_at", "2020-06-06 20:42:40.144410"]]
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000login
+Completed 302 Found in 384ms (ActiveRecord: 20.7ms)
+
+
+Started POST "/signup" for ::1 at 2020-06-06 21:43:48 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7H25O9gadA6bkGqWNJaOX6kzLmNZuNp2n8Vj+D9W6KWmqGRxs9SAp3PnBKqKMAW9t3sYItNMs8d6YrOSLVyB4w==", "user"=>{"username"=>"test", "email"=>"test@bunny.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create account"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@bunny.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "test"], ["email", "test@bunny.com"], ["password_digest", "$2a$12$DwF8zgHz0i4x2w1KYnSHG.Hz/29lr3hX54rPS.iWgh9pDSwtQX1rS"], ["created_at", "2020-06-06 20:43:49.031368"], ["updated_at", "2020-06-06 20:43:49.031368"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000login
+Completed 302 Found in 343ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/signup" for ::1 at 2020-06-06 21:46:13 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 593ms (Views: 350.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2020-06-06 21:46:27 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QcmaHpVUWjSbb9kFC9D/dEwHJzInHn7kqozGYkzc9HcLHEdU/pqunXMYtzm1dnSWUk8Rc63qF1VPKxYIXtadMQ==", "user"=>{"username"=>"test", "email"=>"test@bunny.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create account"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "test"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@bunny.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "test"], ["email", "test@bunny.com"], ["password_digest", "$2a$12$PdTJFU2BBEKZO5cGIp8TBukTenCrRa96h9pcRT3HA0La6JJQWpHsi"], ["created_at", "2020-06-06 20:46:28.131093"], ["updated_at", "2020-06-06 20:46:28.131093"]]
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/login
+Completed 302 Found in 377ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/login" for ::1 at 2020-06-06 21:46:28 +0100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 164ms (Views: 156.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2020-06-06 21:47:18 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"C59PhGcHJZBOqJgtfJXdetzJMdNB+kflJoMu5xZJ8XlBSpLODMnROabf9hHCM1aYwoEHkssOLlTDJP6NBEOYPw==", "user"=>{"email"=>"test@bunny.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@bunny.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/login
+Completed 302 Found in 386ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/login" for ::1 at 2020-06-06 21:47:18 +0100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 91ms (Views: 78.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2020-06-06 21:48:47 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8QGYeaULxlS2zr3nnvLs/kSLHWxp/3BRZBcFYHwyC8q71EUzzsUy/V6509sgVGccWsMrLeMLGeCBsNUKbjhijA==", "user"=>{"email"=>"test@bunny.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@bunny.com"], ["LIMIT", 1]]
+Redirected to 
+Completed 500 Internal Server Error in 679ms (ActiveRecord: 0.7ms)
+
+
+  
+NoMethodError (undefined method `user_url' for #<SessionsController:0x00007f9c59dd7488>
+Did you mean?  users_url):
+  
+app/controllers/sessions_controller.rb:10:in `create'
+Started POST "/login" for ::1 at 2020-06-06 21:52:50 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8QGYeaULxlS2zr3nnvLs/kSLHWxp/3BRZBcFYHwyC8q71EUzzsUy/V6509sgVGccWsMrLeMLGeCBsNUKbjhijA==", "user"=>{"email"=>"test@bunny.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@bunny.com"], ["LIMIT", 1]]
+Redirected to 
+Completed 500 Internal Server Error in 678ms (ActiveRecord: 0.9ms)
+
+
+  
+NoMethodError (undefined method `user_url' for #<SessionsController:0x00007f9c596ace60>
+Did you mean?  users_url):
+  
+app/controllers/sessions_controller.rb:10:in `create'
+Started POST "/login" for ::1 at 2020-06-06 21:53:25 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8QGYeaULxlS2zr3nnvLs/kSLHWxp/3BRZBcFYHwyC8q71EUzzsUy/V6509sgVGccWsMrLeMLGeCBsNUKbjhijA==", "user"=>{"email"=>"test@bunny.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@bunny.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 355ms (ActiveRecord: 0.3ms)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/sessions_controller.rb:10:in `create'
+Started POST "/login" for ::1 at 2020-06-06 21:53:45 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8QGYeaULxlS2zr3nnvLs/kSLHWxp/3BRZBcFYHwyC8q71EUzzsUy/V6509sgVGccWsMrLeMLGeCBsNUKbjhijA==", "user"=>{"email"=>"test@bunny.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@bunny.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/11
+Completed 302 Found in 348ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/users/11" for ::1 at 2020-06-06 21:53:45 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 84ms (Views: 74.3ms | ActiveRecord: 0.8ms)
+
+
