@@ -63,9 +63,9 @@ I want to to be able to write comments on pictures
 ## Relationships
 ### User
 ```
-User has many Pictures
-User has many Comments
-User has many Likes
+- User has many Pictures
+- User has many Comments
+- User has many Likes
 ```
 
 ### Picture
