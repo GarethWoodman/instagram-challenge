@@ -86,3 +86,6 @@ I want to to be able to write comments on pictures
 - Like belongs to one User
 - Like belongs to one Picture
 ```
+
+## ERD
+![Entity Relationship Diagram](./docs/ERD.png)
