@@ -47,7 +47,7 @@ _______________________
 ```
 As a User
 So I can show everyone I lead a full and interesting life
-I want to be post pictures
+I want to be able to post pictures
 ```
 ```
 As a User
