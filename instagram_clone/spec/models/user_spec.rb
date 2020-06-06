@@ -34,7 +34,6 @@ RSpec.describe User, type: :model do
 
   describe "If User attribute is invalid" do
     it "username is invalid" do
-
       user_with_invalid_username = create_user(invalid_username, valid_email, valid_password)
       expect(user_with_invalid_username.id).to eq nil
     end
