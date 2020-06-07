@@ -43,6 +43,23 @@ _______________________
 
 # Development Log
 
+## Reflection
+### 7th June 2020
+Oh my goodness, these challenges get harder every week! 
+
+Somehow I have managed to get some basic funtionality working in my instagram clone app!
+
+So far:
+Users can register and login to their home page
+Users can add and remove pictures
+Users can comment on pictures
+Users can visit other user page's (albiet manually through the URL)
+
+Things to do:
+Create a 'Like' model so users can like pictures
+Overall 'look and feel' of the views need some work
+Disable features if on another users page (i.e you can't delete someone else's picture!)
+
 ## User Stories
 ```
 As a User
