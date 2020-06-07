@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :pictures
+  has_many :comments
 
   has_secure_password
   validates_presence_of :username, :email, :password

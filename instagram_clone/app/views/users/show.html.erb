@@ -18,7 +18,16 @@
 
     <div id="posted_pictures_container">
       <% for picture in @user.pictures %>
+        <%= picture.text %> <br>
         <%= image_tag picture.image  %>
+        <br>
+
+        <%= form_for @picture, url: "/pictures", method: :delete do |f| %>
+        <%= f.hidden_field :id, value: picture.id %>
+          <%= f.submit "Delete picture" %>
+        <% end %>
+
+        <br>
       <% end %>
     </div>
 

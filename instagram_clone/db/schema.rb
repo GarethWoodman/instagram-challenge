@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200607112057) do
+ActiveRecord::Schema.define(version: 20200607192924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.text "message"
+    t.integer "user_id"
+    t.integer "picture_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "pictures", force: :cascade do |t|
     t.string "text"
@@ -32,5 +40,7 @@ ActiveRecord::Schema.define(version: 20200607112057) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "comments", "pictures"
+  add_foreign_key "comments", "users"
   add_foreign_key "pictures", "users"
 end
