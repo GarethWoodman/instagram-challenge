@@ -6,11 +6,8 @@ feature 'User login and logout', type: :feature do
     expect(page).to have_content 'Login'
     expect(page).to have_link 'Sign up'
 
-    fill_in 'user[email]', with: 'gwoodman92@example.com'
-    fill_in 'user[password]', with: 'password'
-    click_button 'Log in'
-
-    user = User.find_by(email: 'gwoodman92@example.com')
+    login
+    user = current_user
 
     expect(current_path).to eq "/users/#{user.id}"
     expect(page).to have_content "#{user.username}"

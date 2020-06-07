@@ -1,5 +1,22 @@
-<h1>Welcome <%= @user.username %> </h1>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Your Page</title>
+  </head>
+  <body>
+    <h1>Welcome <%= @user.username %> </h1>
 
-<%= form_for @user, url: "/logout", method: :delete do |f| %>
-    <%= f.submit "Log out" %>
-  <% end %>
+    <button id="post_picture">Post picture</button>
+
+    <div id="posted_pictures_container">
+    </div>
+
+    <%= form_for @user, url: "/logout", method: :delete do |f| %>
+      <%= f.submit "Log out" %>
+    <% end %>
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="<%= './app/assets/javascripts/interface.js' %>"></script>
+  </body>
+</html>

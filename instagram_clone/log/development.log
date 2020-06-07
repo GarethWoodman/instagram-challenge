@@ -748,3 +748,154 @@ Processing by SessionsController#new as HTML
 Completed 200 OK in 82ms (Views: 71.7ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/login" for 127.0.0.1 at 2020-06-07 10:13:02 +0100
+  [1m[35m (9.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (76.1ms)
+Completed 200 OK in 1861ms (Views: 1791.8ms | ActiveRecord: 16.2ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-06-07 10:13:15 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F/b2Wr7CHneFvKzThGvrL2l3My19IIrrMRD8TE2li2ZdIysQ1Qzq3m3Lwu86zWDNdz8FbPfU41rUtywmX6/iIA==", "user"=>{"email"=>"shakira@bunny.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "shakira@bunny.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/12
+Completed 302 Found in 384ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/users/12" for 127.0.0.1 at 2020-06-07 10:13:16 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 76ms (Views: 66.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/assets/javascripts/interface.js" for 127.0.0.1 at 2020-06-07 10:13:16 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/users/assets/javascripts/interface.js"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/users/12" for ::1 at 2020-06-07 10:15:36 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (631.6ms)
+Completed 500 Internal Server Error in 704ms (ActiveRecord: 3.9ms)
+
+
+  
+ActionView::Template::Error (Asset was not declared to be precompiled in production.
+Add `Rails.application.config.assets.precompile += %w( interface.js )` to `config/initializers/assets.rb` and restart your server):
+    17:     <% end %>
+    18: 
+    19:     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    20:     <script type="text/javascript" src="<%= javascript_include_tag('interface.js') %>"></script>
+    21:   </body>
+    22: </html>
+  
+app/views/users/show.html.erb:20:in `_app_views_users_show_html_erb__2908898046993471182_70284308760460'
+Started GET "/users/12" for ::1 at 2020-06-07 10:18:47 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (136.6ms)
+Completed 500 Internal Server Error in 187ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (Asset was not declared to be precompiled in production.
+Add `Rails.application.config.assets.precompile += %w( interface.js )` to `config/initializers/assets.rb` and restart your server):
+    17:     <% end %>
+    18: 
+    19:     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    20:     <script type="text/javascript" src="<%= javascript_include_tag('interface.js') %>"></script>
+    21:   </body>
+    22: </html>
+  
+app/views/users/show.html.erb:20:in `_app_views_users_show_html_erb__2908898046993471182_70284309253560'
+Started GET "/users/12" for ::1 at 2020-06-07 10:21:25 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (8.4ms)
+Completed 500 Internal Server Error in 80ms (ActiveRecord: 2.0ms)
+
+
+  
+SyntaxError (/Users/garethwoodman/Desktop/Makers Academy/Projects/instagram-challenge/instagram_clone/app/views/users/show.html.erb:20: syntax error, unexpected ')', expecting keyword_end
+...ts/javascripts/interface.js') );@output_buffer.safe_append='...
+...                              ^):
+  
+app/views/users/show.html.erb:20: syntax error, unexpected ')', expecting keyword_end
+Started GET "/users/12" for ::1 at 2020-06-07 10:21:37 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 366ms (Views: 357.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/app/assets/javascripts/interface.js" for ::1 at 2020-06-07 10:21:38 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/users/app/assets/javascripts/interface.js"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
