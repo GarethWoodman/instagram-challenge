@@ -89,3 +89,6 @@ I want to to be able to write comments on pictures
 
 ## ERD
 ![Entity Relationship Diagram](./docs/ERD.png)
+
+## User Page - Mockup
+![User Page Mockup](./docs/users_show_mockup.png)
