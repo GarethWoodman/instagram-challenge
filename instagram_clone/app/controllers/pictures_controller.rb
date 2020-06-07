@@ -10,16 +10,15 @@ class PicturesController < ApplicationController
 
     if @picture.save
       p "Stored picture in db"
-      redirect_to "/users/#{current_user.id}"
+      redirect_to "/users/#{@picture.user_id}"
     else
       p "Invalid submission"
     end
   end
 
   def destroy
-    p params
     Picture.find(params[:picture][:id]).destroy
-    redirect_to "/users/#{current_user.id}"
+    redirect_to "/users/#{@picture.user_id}"
   end
 
   private

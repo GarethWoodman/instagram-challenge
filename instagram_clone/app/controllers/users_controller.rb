@@ -17,8 +17,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(session[:user_id])
+    @user = User.find(params[:id])
+    # @user = User.find(session[:user_id])
     @picture = Picture.new
+    @comment = Comment.new
   end
 
   private

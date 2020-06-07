@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'pictures/new'
-
   get      '/signup'     => 'users#new'
   post     '/signup'     => 'users#create'
   get      '/users/:id'  => 'users#show'
@@ -12,5 +10,7 @@ Rails.application.routes.draw do
   post     '/pictures'   => 'pictures#create'
   delete   '/pictures'   => 'pictures#destroy'
 
+  post     '/comments'   => 'comments#create'
+  delete   '/comments'   => 'comments#destroy'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
