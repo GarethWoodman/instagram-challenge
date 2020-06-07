@@ -7,7 +7,14 @@
   <body>
     <h1>Welcome <%= @user.username %> </h1>
 
-    <button id="post_picture">Post picture</button>
+    <%= form_for @picture, url: "/pictures", method: :post, html: { multipart: true } do |f| %>
+      <%= f.label :text %>
+      <%= f.text_field :text %> <br />
+
+      <%= f.file_field :image %>
+
+      <%= f.submit "Post picture" %>
+    <% end %>
 
     <div id="posted_pictures_container">
     </div>

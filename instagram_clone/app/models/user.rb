@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :pictures
+
   has_secure_password
   validates_presence_of :username, :email, :password
   validates_uniqueness_of :username, :email
