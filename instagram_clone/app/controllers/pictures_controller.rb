@@ -10,6 +10,7 @@ class PicturesController < ApplicationController
 
     if @picture.save
       p "Stored picture in db"
+      redirect_to "/users/#{current_user.id}"
     else
       p "Invalid submission"
     end

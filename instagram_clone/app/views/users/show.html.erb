@@ -17,6 +17,9 @@
     <% end %>
 
     <div id="posted_pictures_container">
+      <% for picture in @user.pictures %>
+        <%= image_tag picture.image  %>
+      <% end %>
     </div>
 
     <%= form_for @user, url: "/logout", method: :delete do |f| %>
